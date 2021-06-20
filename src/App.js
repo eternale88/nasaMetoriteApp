@@ -2,17 +2,32 @@ import logo from './logo.svg';
 import React, {useState, useEffect} from 'react'
 import './App.css';
 //import data from './data'
-import {Grid} from '@material-ui/core'
+import {Grid, Tooltip} from '@material-ui/core'
 import { DataGrid, GridRowsProp, GridColDef } from '@material-ui/data-grid';
 import axios from 'axios'
 
 
+//test rows
+// const rows = [
+//   { id: 1, col1: 'Hello', col2: 'World' },
+//   { id: 2, col1: 'XGrid', col2: 'is Awesome' },
+//   { id: 3, col1: 'Material-UI', col2: 'is Amazing' },
+// ];
+//import { makeStyles } from '@material-ui/core/styles';
 
-const rows = [
-  { id: 1, col1: 'Hello', col2: 'World' },
-  { id: 2, col1: 'XGrid', col2: 'is Awesome' },
-  { id: 3, col1: 'Material-UI', col2: 'is Amazing' },
-];
+// const useStyles = makeStyles((theme) => ({
+//   fab: {
+//     margin: theme.spacing(2),
+//   },
+//   absolute: {
+//     position: 'absolute',
+//     bottom: theme.spacing(2),
+//     right: theme.spacing(3),
+//   },
+// }));
+//in component 
+//  const classes = useStyles();
+// className={classes.fab} or absolute etc.
 
 const columns = [
   { field: 'name', headerName: 'Name', width: 150 },
@@ -24,13 +39,57 @@ const columns = [
   { field: 'year', headerName: 'Year', width: 150 },
   { field: 'reclat', headerName: 'Latitude', width: 150 },
   { field: 'reclong', headerName: 'Longitude', width: 150 },
-  { field: 'geolocation', headerName: 'GeoLocation(lat and long)', width: 150 },
-];
+  { field: 'geolocation', headerName: 'GeoLocation(latitude and longitude)', width: 150 }
+]
+
 function App() {
   const NASA_METEOR_API_ENDPOINT = 'https://data.nasa.gov/resource/gh4g-9sfh.json'
 //store state in hooks
 const [loading, setLoading] = useState(true)
 const [meteorData, setMeteorData] = useState([])
+const [favorites, setFavorites] = useState([])
+
+const onRowSelection = (e) => {
+  console.log(e.data)
+  // meteorData.filter((item) => {
+  //   if(item.id ===)
+  // })
+  // setFavorites((oldState) => {
+  //   oldState.filter((fav) => {
+  //     if(fav.id !== e.data.id) {
+  //       return [...oldState, fav]
+  //     }
+  //   })
+  // })
+  if(!favorites.length) {
+    setFavorites([...favorites, e.data])
+  } 
+  //check if list is not empty and wether the record with specific id has not been added yet
+  if(favorites.length > 0 && !favorites.some(fav => fav.id === e.data.id)) {
+    setFavorites([...favorites, e.data])
+
+
+    ////attemp to not allow user to add duplicates to favorites list. issue
+
+    // const checkId =  favorites.filter((fav) => {
+    //   console.log(`${fav.id}  ${e.data.id}`)
+    //     if(fav.id === e.data.id) {
+    //      //setFavorites([...favorites, e.data])
+    //      return false
+    //    } 
+    //     if(fav.id !== e.data.id) {
+    //       return true
+    //     }
+    // }) 
+    // if(checkId) {
+    //   setFavorites([...favorites, e.data])
+    // } 
+    // if(!checkId) {
+    //   return
+    // }
+  }
+}
+
 
 const fetchMeteorData = async () => {
   setLoading(true)
@@ -38,44 +97,48 @@ const fetchMeteorData = async () => {
   //const data = await response.json()
   //console.log(response.data[0])
   if(response.data) {
-    // setLoading(false)
-     //const editedData = response.data.map((item) => {
-       //console.log(item.geolocation.latitude)
-      //  return item.geolocation = `${item.geolocation.coordinates[0]} ${item.geolocation.coordinates[1]}`
-     //})
-     const examp = response.data.map((value)=> {
+   
+     //response.data.year = new Date(response.data.year)
+     //geolocation field is nested object, so need to map to access the to prop else it will display [object object in Dom]
+     response.data.map((value) => {
+       value.year = new Date(value.year).toLocaleDateString('en-US', {
+        month: 'long',
+        day: '2-digit',
+        year: 'numeric',
+        //hour: '2-digit'
+      })
        console.log(value)
        let latAndLong = ''
        for (let geo in value.geolocation) {
         console.log(geo)
-        latAndLong += `${value.geolocation[geo]} `
+        latAndLong += `(${value.geolocation[geo]}) `
        }
-  console.log(latAndLong)
       value.geolocation = latAndLong
-      //return value
+      // for (let val in value) {
+      //   value.description = val[value]
+
+      // }
    })
-   console.log(examp)
-     //console.log(editedData)
-    //  const remapOfGeolocation = response.data.map((item) => {
-       
-    //    if(item) {
-    //      item.geoLocation = `${item.latitude} ${item.longitude}`
-    //      //geoLocationObj = `${latitude} ${longitude}`
-    //    }
-    //    return {item}
-    //  })
     setMeteorData(response.data)
+    setLoading(false)
   }
 }
+
+//display data on page load
 useEffect(() => {
   fetchMeteorData()
 
 }, [])
+
   return (
     <Grid container  >
     <Grid item xs={12}>
-      <section style={{ height: 500, width: '80%' , margin: '0 auto'}}>
-          <DataGrid rows={meteorData} columns={columns} pageSize={12} />
+    <h1 style={{textAlign: 'center'}}>Nasa Meteorite Data</h1>
+    <h4 style={{textAlign: 'center'}}>(Filter by any field by clicking the ellipse in the column header)</h4>
+  
+      <section style={{ height: 500, width: '80%' , margin: '5rem auto'}}>
+          {favorites.length > 0 && <DataGrid rows={favorites} columns={columns} pageSize={10}/>}
+          <DataGrid loading={loading} rows={meteorData} columns={columns} pageSize={25} onRowSelected={(e) => onRowSelection(e)} />
       </section>
     </Grid>
       
