@@ -3,8 +3,13 @@ import React, {useState, useEffect} from 'react'
 import './App.css';
 //import data from './data'
 import {Grid, Tooltip} from '@material-ui/core'
+
 import { DataGrid, GridRowsProp, GridColDef } from '@material-ui/data-grid';
+import { makeStyles } from '@material-ui/styles';
+
 import axios from 'axios'
+import { MeteorTable } from './components/MeteorTable'
+
 
 
 //test rows
@@ -132,16 +137,23 @@ useEffect(() => {
 
   return (
     <Grid container  >
-    <Grid item xs={12}>
-    <h1 style={{textAlign: 'center'}}>Nasa Meteorite Data</h1>
-    <h4 style={{textAlign: 'center'}}>(Filter by any field by clicking the ellipse in the column header)</h4>
-  
-      <section style={{ height: 500, width: '80%' , margin: '5rem auto'}}>
-          {favorites.length > 0 && <DataGrid rows={favorites} columns={columns} pageSize={10}/>}
-          <DataGrid loading={loading} rows={meteorData} columns={columns} pageSize={25} onRowSelected={(e) => onRowSelection(e)} />
-      </section>
-    </Grid>
-      
+      <Grid item xs={12}>
+      <h1 style={{textAlign: 'center'}}>Nasa Meteorite Data</h1>
+      <h4 style={{textAlign: 'center'}}>(Filter by any field by clicking the ellipse in the column header)</h4>
+    
+        <section style={{ display: 'flex',  height: 500, width: '80%' , margin: '5rem auto'}}>
+      {/*Favorites table */}
+            {favorites.length > 0 && 
+              <Grid item xs={6}  style={{marginRight: '3rem', marginTop: '0', paddingTop: '0'}} className="favorites">
+              {/*<h4 style={{marginTop: '0', paddingTop: '0', position:'absolute', left: '200px', bottom: '0px'}}>Favorites List</h4>*/}
+                <DataGrid rows={favorites} columns={columns} pageSize={10}/>
+              </Grid>}
+      {/*Meteor Data table */}
+              {/* <DataGrid style={{marginLeft: '3rem'}} loading={loading} rows={meteorData} columns={columns} pageSize={25} onRowSelected={(e) => onRowSelection(e)} /> */}
+              <MeteorTable meteorData={meteorData} columns={columns} loaded={loading} onRowSelected={onRowSelection}/>
+        </section>
+      </Grid>
+        
     </Grid>
     
   );

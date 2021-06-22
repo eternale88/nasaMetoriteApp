@@ -16,3 +16,14 @@ code {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+
+
+
+/* @media screen and (max-width: 600px) {
+  .favorites {
+    display: block !important;
+    flex-direction: row;
+  
+  }
+} */
