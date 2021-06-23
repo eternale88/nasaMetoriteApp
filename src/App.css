@@ -36,3 +36,25 @@
     transform: rotate(360deg);
   }
 }
+body .header-section {
+  Margin: 3rem auto;
+}
+section .favorites {
+  margin-right: 3rem;
+}
+       
+
+ @media screen and (max-width: 600px) {
+  section.tableSection {
+    height: 800px !important;
+    flex-direction: column;
+    /* align-items: center; */
+    margin-top: 2rem;
+  
+  }
+ 
+  section .favorites {
+    margin-right: 0rem;
+    margin-bottom: 2rem;
+  }
+} 
