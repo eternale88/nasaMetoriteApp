@@ -5,6 +5,10 @@ import './App.css';
 import {Grid, Tooltip} from '@material-ui/core'
 import { createStyles, makeStyles } from "@material-ui/core/styles";
 import { DataGrid, GridRowsProp, GridColDef } from '@material-ui/data-grid';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+
+
 import axios from 'axios'
 import { MeteorTable } from './components/MeteorTable'
 
@@ -23,10 +27,10 @@ const useStyles = makeStyles({
     '& .MuiDataGrid-columnHeaderWrapper': {
       backgroundColor: 'rgb(134 137 243 / 55%)',
     },
-    ' & .MuiDataGrid-root': {
+    '& .MuiDataGrid-root': {
       backgroundColor: '#d7eef9',
     }
-  },
+  }
 });
 
 //test rows
@@ -51,7 +55,7 @@ const useStyles = makeStyles({
 //  const classes = useStyles();
 // className={classes.fab} or absolute etc.
 
-const columns = [
+export const columns = [
   { field: 'name', headerName: 'Name',headerClassName: 'super-app-theme--header',
   width: 150 },
   { field: 'id', headerName: 'id', width: 150 },
@@ -136,10 +140,14 @@ useEffect(() => {
 const classes = useStyles()
   return (
     <Grid container spacing={1}  >
-      <Grid item xs={8} md={12} className="header-section">
-        <h1 style={{textAlign: 'center'}}>Nasa Meteorite Data</h1>
-        <h4 style={{textAlign: 'center'}}>(Filter by any field by clicking the ellipse in the column header)</h4>
-        <h4 style={{textAlign: 'center'}}>(Click a row to add to your favorites list to gdig into the data)</h4>
+      <Grid item xs={8} md={12} className={classes.roots}>
+        <Card style={{marginRight: '3rem', marginLeft: '3rem'}}>
+          <CardContent>
+            <h1 style={{textAlign: 'center'}}>Nasa Meteorite Data</h1>
+            <h4 style={{textAlign: 'center'}}>(Filter by any field by clicking the ellipse in the column header)</h4>
+            <h4 style={{textAlign: 'center'}}>(Click a row to add to your favorites list to gdig into the data)</h4>
+          </CardContent>
+        </Card>
       </Grid>
 
         <section style={{ display: 'flex', justifyContent: 'center', height: 500, width: '80%' , margin: '5rem auto'}} className="tableSection">

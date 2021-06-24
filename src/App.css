@@ -36,11 +36,17 @@
     transform: rotate(360deg);
   }
 }
-body .header-section {
-  Margin: 3rem auto;
-}
+ body .header-section {
+  margin: 3rem auto;
+} 
+ body {
+  background-color: #f4f4f9;
+} 
 section .favorites {
   margin-right: 3rem;
+} 
+h1, h4 {
+  text-shadow: rgb(142 186 218) 1px 1px;;
 }
        
 

@@ -1,10 +1,12 @@
 import { render, screen, waitForElementToBeRemoved } from '@testing-library/react';
 import App from './App';
 import data from './data'
+import mockData from './mockData'
 import axios from 'axios';
 jest.mock('axios');
 
 
+const errorMessage = 'Network Error';
 
 beforeEach(() => {
   //call api before each test
@@ -15,7 +17,6 @@ beforeEach(() => {
 // test('fetches successfully data from an API', () => {
 //   axios.get.mockImplementationOnce(() => Promise.resolve(data));
 // })
-// const errorMessage = 'Network Error';
 
 // test('fetches erroneously data from an API', () => {
 //   axios.get.mockImplementationOnce(() => Promise.reject(new Error(errorMessage)),)
@@ -31,8 +32,13 @@ test('renders app', () => {
    // local storage api:
    jest.spyOn(window.localStorage.__proto__, 'setItem');
    window.localStorage.__proto__.setItem = jest.fn();
+
+   jest.spyOn(window.localStorage.__proto__, 'getItem');
+   window.localStorage.__proto__.getItem = jest.fn();
+   
 // assertions as usual:
   expect(localStorage.setItem).toBeDefined;
+  expect(localStorage.getItem).toBeDefined;
 //screen.debug()
   //const linkElement = screen.getByText(/learn react/i);
   //expect(linkElement).toBeInTheDocument();
