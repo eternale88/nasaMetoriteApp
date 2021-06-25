@@ -1,9 +1,9 @@
 import React from 'react'
-import { DataGrid, GridRowsProp, GridColDef } from '@material-ui/data-grid';
+import { DataGrid } from '@material-ui/data-grid'
 
-export const MeteorTable = ({meteorData, columns, onRowSelected, loading}) => {
+export const MeteorTable = ({meteorData, columns, onRowSelected}) => {
 	return (
-		<DataGrid checkboxSelection style={{marginLeft: '3rem'}} loading={loading} rows={meteorData} columns={columns} pageSize={25} onRowSelected={(e) => onRowSelected(e)} />
+		<DataGrid checkboxSelection style={{marginLeft: '3rem'}}  rows={meteorData} columns={columns} pageSize={25} onRowSelected={(e) => onRowSelected(e)} />
 	)
 }
 
