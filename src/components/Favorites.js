@@ -2,8 +2,6 @@ import React from 'react'
 //import '../App.css'
 import PropTypes from 'prop-types';
 import { makeStyles } from "@material-ui/core/styles"
-
-
 import { DataGrid } from '@material-ui/data-grid'
 
 //apply some custom colors
@@ -30,6 +28,6 @@ export default Favorites
 
 Favorites.propTypes = {
 	DataGrid: PropTypes.element,
-	favorites: PropTypes.arrayOf(PropTypes.object),
-	columns: PropTypes.arrayOf(PropTypes.object)
+	favorites: PropTypes.arrayOf(PropTypes.object).isRequired,
+	columns: PropTypes.arrayOf(PropTypes.object).isRequired
 }
