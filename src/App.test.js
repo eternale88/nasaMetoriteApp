@@ -5,9 +5,6 @@ import { MeteorTable } from './components/MeteorTable';
 import { columns }  from './Constants/Constant'
 import mockData from './mockData'
 
-
-
-
 beforeEach(cleanup);
 jest.mock('axios');
 
@@ -21,7 +18,6 @@ beforeEach(() => {
 
   axios.get.mockImplementationOnce(() => Promise.reject(new Error(errorMessage)),)
 });
-
 
 test('renders app', () => {
   render(<App />);
