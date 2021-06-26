@@ -1,6 +1,8 @@
 export const HeaderContent = 'Nasa Meteorite Data Visualizer'
 export const SubHeaderContent = '(Filter by any field by clicking the ellipse in the column header)'
 export const TaglineContent = '(Click a row to add to your favorites list so you can dig into the data)'
+export const NASA_METEOR_API_ENDPOINT = 'https://data.nasa.gov/resource/gh4g-9sfh.json'
+
 export const columns = [
   { field: 'name', headerName: 'Name',headerClassName: 'super-app-theme--header',
   width: 150 },

@@ -2,6 +2,9 @@ import { render, cleanup,  screen, } from '@testing-library/react';
 import { Header } from './Header'
 
 beforeEach(cleanup);
+afterEach(() => {
+	jest.clearAllMocks();
+});
 //getByRole('button', {name: /submit/i})
 describe('<Header /> tests', () => {
 	test('renders Header component', () => {
