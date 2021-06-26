@@ -1,8 +1,10 @@
 # Nasa Metorite Data Visualizer
 
-React app, that allows a user to explore Nasa Meteorite Data and to add their any favorites they want to their own favorites list. This list can persist through page refreshes as well in other tabs, because it saves the favorites using the HTML5 LocalStorage API. Internal state management is handled using React Hooks
+React app, that allows a user to explore Nasa Meteorite Data and to add any favorite meteors they want to their own favorites list. This list can persist through page refreshes as well in other tabs, because it saves the favorites using the HTML5 LocalStorage API. Internal state management is handled using React Hooks
 
 It has Responsive CSS styling, going from 2 column to single column layout on smaller screens. Material UI and custom CSS is used for this. It displays a popup when the user adds a new item to their list for a more friendly experience.
+
+It uses Axios to fetch the data from Nasa Api as this provides a common way to fetch and post data, the native fetch api would have worked just as well, but I felt this is a common tool for teams to use and thus can be better for collaboration, and sometimes with fetch you end up have to do extra custom error checking which would likely need to be refactored into some helper function anyway. 
 
 
 
