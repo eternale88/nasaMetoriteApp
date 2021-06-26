@@ -6,6 +6,10 @@ It has Responsive CSS styling, going from 2 column to single column layout on sm
 
 It uses Axios to fetch the data from Nasa Api as this provides a common way to fetch and post data, the native fetch api would have worked just as well, but I felt this is a common tool for teams to use and thus can be better for collaboration, and sometimes with fetch you end up have to do extra custom error checking which would likely need to be refactored into some helper function anyway. 
 
+For testing we use the React Testing Library which uses Jest for Unit Testing. Their are 4 test suites for each component(Header, MeteorTable, FavoritesTable, and the App component) -  I've implenented some integration testing by letting the app load and fetch relevant data and then capture the user clicking on some DataTable locations which would be the flow for them adding a favorite to the favorites list. For further more robust integration testing I would consider going with some custom html el table that would enable me to add custom HTML attributes. I think I might be able to query the state of the table and simulate more user interactions. The DataGrid component has so many nested elements that obscure the ability to do this. I think unit testing and integration testing with components kind of flows together and it's more about seeing whether you are testing enough from the user perspective for Integration, and more checking expected values and that each individual component renders for Unit testing.
+
+For type checking I went with React prop-types to check the data type of values being passed to components (https://www.npmjs.com/package/prop-types)
+
 
 
 ## Running the app
@@ -39,8 +43,6 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 ## Learn More
 For any info about the Webpack and Babel implementation - 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-.
 
 ## Documentation
 ### Client Side Framework
