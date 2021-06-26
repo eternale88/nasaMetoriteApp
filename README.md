@@ -46,5 +46,5 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 To learn React, check out the [React documentation](https://reactjs.org/).
 
 ## Documentation
-###Styling
+### Styling
 To explore something new for styling I implemented Material UI to assist with styling and responsiveness [Material UI](https://material-ui.com/) - for any component I implemented, search their docs for relevent details. I found their DataGrid component to be helpful for displaying this dataset, as it was intended to be used for large amount of data like this Nasa data. I also experimented with overriding their default styling, using their hooks api, which is a Javascript solution for applying CSS [Styling](https://material-ui.com/styles/basics/)
