@@ -8,8 +8,9 @@ It uses Axios to fetch the data from Nasa Api as this provides a common way to f
 
 
 
-## Available Scripts
+## Running the app
 
+Once you clone the app from this repo, cd into the root directory and run `npm intall package.json`
 In the project directory, you can run:
 
 ### `npm start`
