@@ -38,13 +38,14 @@ test('renders app', () => {
   expect(localStorage.setItem).toBeDefined;
   expect(localStorage.getItem).toBeDefined;
 
+  //simulate user click
   const onRowSelection = jest.fn()
   const { queryByTestId } = render(
     <MeteorTable columns={columns} meteorData={mockData}
       onRowSelected={onRowSelection}
     />
   );
-  //simulate clicking of meteor data table to add item to list
+  //integration test simulate clicking of meteor data table to add item to list
   fireEvent.click(queryByTestId('add-favorite'));
 //screen.debug()
 })

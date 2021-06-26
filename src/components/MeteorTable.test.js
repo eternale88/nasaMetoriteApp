@@ -12,13 +12,12 @@ afterEach(() => {
 });
 describe('<MeteorTable /> tests', () => {
 	test('renders app', () => {
-		const onRowSelection = jest.fn()
-		render(<MeteorTable columns={columns} meteorData={mockData} onRowSelected={onRowSelection}/>)
+		render(<MeteorTable columns={columns} meteorData={mockData} />)
 
 		//check that name and id cols, and name and id filter text labels are there
 		expect(screen.getByText(/name/i)).toBeInTheDocument()
 		expect(screen.getByText(/id/i)).toBeInTheDocument()
-		//simulate user interactions with name and id filters
+		//integration tests to simulate user interactions with name and id filters
 		userEvent.click(screen.getByText(/name/i))
 		userEvent.click(screen.getByText(/id/i))
 
