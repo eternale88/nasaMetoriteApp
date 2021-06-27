@@ -46,7 +46,7 @@ Watch Usage
 
 In that case please press the `a` key on your keyboard to run all tests and it should pick them up and run them. 
 
-Do not run Jest with `--watchAll` as it says, this is configured with an npm script already. `npm test` is what you want - thanks.
+Do not run Jest with `--watchAll` as it says, this is configured with an npm script already. `npm test` is what you want so just press `a` - thanks.
 
 ### `npm run build`
 
