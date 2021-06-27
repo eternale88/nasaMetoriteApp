@@ -14,7 +14,7 @@ For type checking I went with React prop-types to check the data type of values 
 
 ## Running the app
 
-Once you clone the app from this repo, cd into the root directory and run `npm intall package.json`
+Once you clone the app from this repo, cd into the root directory `nasa-metorite-app` and run `npm intall package.json`
 In the project directory, you can run:
 
 ### `npm start`
