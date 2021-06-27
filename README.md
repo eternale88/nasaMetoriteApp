@@ -34,7 +34,7 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 When you run these it triggers Jest Watch mode which watches for saved changes and reruns tests, but since you won't have made any changes it won't immediately notice the tests and might say something like this:
 `No tests found related to files changed since last commit.
-Press `a` to run all tests, or run Jest with `--watchAll`.
+Press a to run all tests, or run Jest with --watchAll.
 
 Watch Usage
  › Press a to run all tests.
