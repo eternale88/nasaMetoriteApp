@@ -6,7 +6,9 @@ It has Responsive CSS styling, going from 2 column to single column layout on sm
 
 It uses Axios to fetch the data from Nasa Api as this provides a common way to fetch and post data, the native fetch api would have worked just as well, but I felt this is a common tool for teams to use so I went with it.
 
-For testing we use the React Testing Library which uses Jest for Unit Testing. Their are 4 test suites for each component(Header, MeteorTable, FavoritesTable, and the App component) -  I've implenented some integration testing by letting the app load and fetch relevant data and then capture the user clicking on some DataTable locations which would be the flow for them adding a favorite to the favorites list. For further more robust integration testing I would consider going with some custom html el table that would enable me to add custom HTML attributes. I think I might be able to query the state of the table and simulate more user interactions. The DataGrid component has so many nested elements that obscure the ability to do this. I think unit testing and integration testing with components kind of flows together and it's more about seeing whether you are testing enough from the user perspective for Integration, and more checking expected values and that each individual component renders for Unit testing.
+For testing we use the React Testing Library which uses Jest for Unit Testing. I had tried this out to test expected values of some Javascript Functions for an Algorithm course I did on Udemy. I wanted to try to write unit tests for these React components, and to try and see how to write a basic integration test. 
+
+Their are 4 test suites - 1 for each component(Header, MeteorTable, FavoritesTable, and the App component) -  I've implenented some integration testing by letting the app load and fetch relevant data and then capture the user clicking on some DataTable locations which would be the flow for them adding a favorite to the favorites list. For further more robust integration testing I would consider going with some custom html table (or the basic material ui table compnent) that would enable me to add more custom HTML attributes. I think I might be able to query the state of the table and simulate more user interactions. The DataGrid component has so many nested elements that obscure the ability to do this. I think unit testing and integration testing with components kind of flows together and it's more about seeing whether you are testing enough from the user perspective for Integration, and more checking expected values and that each individual component renders for Unit testing. I've read that Cypress is popular for this as well.
 
 For type checking I went with React prop-types to check the data type of values being passed to components (https://www.npmjs.com/package/prop-types)
 
@@ -53,6 +55,8 @@ React Hooks was used for internal state managment, I prefer these to traditional
 
 ### Styling
 To explore something new for styling I implemented Material UI to assist with styling and responsiveness [Material UI](https://material-ui.com/) - for any component I implemented, search their docs for relevent details. I found their DataGrid component to be helpful for displaying this dataset, as it was intended to be used for large amount of data like this Nasa data - a super charged table with native filterability for all data columns. I also experimented with overriding their default styling, using their hooks api, which is a Javascript solution for applying CSS [Styling](https://material-ui.com/styles/basics/) and their Grid component(not to be confused with DataGrid) this is for layout, [Grid](https://material-ui.com/components/grid/)
+
+I also thought it was great that they have robust testing on their end according to the docs (https://material-ui.com/guides/testing/#testing)
 
 ### Storage
 [HTML5 Local Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
