@@ -76,7 +76,7 @@ const fetchMeteorData = async () => {
         //console.log(value)
         let latAndLong = ''
         for (let geo in value.geolocation) {
-         console.log(geo)
+         //console.log(geo)
          latAndLong += `(${value.geolocation[geo]}) `
         }
        value.geolocation = latAndLong
