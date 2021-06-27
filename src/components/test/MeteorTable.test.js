@@ -1,9 +1,8 @@
-import mockData from '../mockData'
-import { MeteorTable } from './MeteorTable'
-import { columns }  from '../Constants/Constant'
-import { render, cleanup, screen, fireEvent, waitForElementToBeRemoved } from '@testing-library/react'
+import mockData from '../../mockData'
+import { MeteorTable } from '../MeteorTable'
+import { columns }  from '../../Constants/Constant'
+import { render, cleanup, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import App from '../App'
 
 
 beforeEach(cleanup);

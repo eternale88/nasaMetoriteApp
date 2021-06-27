@@ -1,11 +1,11 @@
-import mockData from '../mockData'
-import  Favorites  from './Favorites'
-import { columns }  from '../Constants/Constant'
+import mockData from '../../mockData'
+import  Favorites  from '../Favorites'
+import { columns }  from '../../Constants/Constant'
 import { render, cleanup } from '@testing-library/react'
 
 
 
-beforeEach(cleanup);
+beforeEach(cleanup)
 afterEach(() => {
 	jest.clearAllMocks()
 })
