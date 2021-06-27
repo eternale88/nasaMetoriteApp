@@ -44,7 +44,9 @@ Watch Usage
  › Press t to filter by a test name regex pattern.
  › Press Enter to trigger a test run.`
 
-In that case press the `a` key on your keyboard to run all tests and it should pick them up.
+In that case please press the `a` key on your keyboard to run all tests and it should pick them up and run them. 
+
+Do not run Jest with `--watchAll` as it says, this is configured with an npm script already. `npm test` is what you want - thanks.
 
 ### `npm run build`
 
