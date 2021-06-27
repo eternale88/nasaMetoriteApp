@@ -32,6 +32,20 @@ You will also see any lint errors in the console.
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
+When you run these it triggers Jest Watch mode which watches for saved changes and reruns tests, but since you won't have made any changes it won't immediately notice the tests and might say something like this:
+`No tests found related to files changed since last commit.
+Press `a` to run all tests, or run Jest with `--watchAll`.
+
+Watch Usage
+ › Press a to run all tests.
+ › Press f to run only failed tests.
+ › Press q to quit watch mode.
+ › Press p to filter by a filename regex pattern.
+ › Press t to filter by a test name regex pattern.
+ › Press Enter to trigger a test run.`
+
+In that case press the `a` key on your keyboard to run all tests and it should pick them up.
+
 ### `npm run build`
 
 Builds the app for production to the `build` folder.\
