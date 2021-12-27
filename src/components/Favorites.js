@@ -16,6 +16,7 @@ const useStyles = makeStyles({
   }
 });
 
+//store in state var in context for insertion here
 const Favorites = ({favorites, columns}) => {
 	const classes = useStyles()
 

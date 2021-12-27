@@ -10,7 +10,7 @@ import { columns, NASA_METEOR_API_ENDPOINT } from './Constants/Constant'
 import Favorites from './components/Favorites'
 import Snackbar from '@material-ui/core/Snackbar';
 
-
+//move to context file
 const getFavsFromLocalStorage = () => {
   let favs = localStorage.getItem('favoritesMeteors')
   if(favs) {
@@ -32,7 +32,7 @@ const useStyles = makeStyles({
   }
 });
 
-
+//refactor to es6 arrow
 function App() {
 //store state in hooks
 const [loading, setLoading] = useState(true)
