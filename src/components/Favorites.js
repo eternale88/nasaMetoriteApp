@@ -17,11 +17,11 @@ const useStyles = makeStyles({
 });
 
 //store in state var in context for insertion here
-const Favorites = ({favorites, columns}) => {
+const Favorites = ({favorites, columns, deleteMeteor}) => {
 	const classes = useStyles()
 
 	return (
-		<DataGrid className={classes.root} rows={favorites} columns={columns} pageSize={25}/>
+		<DataGrid checkboxSelection className={classes.root} rows={favorites} columns={columns} pageSize={25} />
 	)
 }
 

@@ -46,7 +46,7 @@ const alertItemAdded = () => {
 }
 
 const onRowSelection = (e) => {
-  //console.log(e.data)
+  console.log(e.data)
 
   if(!favorites.length) {
     setFavorites([...favorites, e.data])
@@ -58,6 +58,17 @@ const onRowSelection = (e) => {
     alertItemAdded()
   }
 }
+
+//delete meteor from favorites table
+ const deleteMeteor = (id) => {
+   console.log('hello')
+  // setFavorites(favorites.filter((meteor) => {
+  //   return meteor.id !== id.data.id
+  // })
+  // )
+ }
+
+
 
 
 const fetchMeteorData = async () => {
@@ -111,7 +122,7 @@ const classes = useStyles()
       {
             favorites.length > 0 &&  !loading &&
             <Grid item xs={12} sm={6}   style={{ marginTop: '0', paddingTop: '0'}} className="favorites" >
-              <Favorites  favorites={favorites} columns={columns}  className={classes.root}/>
+              <Favorites  favorites={favorites}  columns={columns}  className={classes.root}/>
               <Snackbar
                 anchorOrigin={{
                   vertical: 'bottom',
