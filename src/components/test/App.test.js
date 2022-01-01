@@ -4,6 +4,8 @@ import axios from 'axios'
 import { MeteorTable } from '../MeteorTable'
 import { columns }  from '../../Constants/Constant'
 import mockData from '../../mockData'
+import { AppProvider, AppContext } from '../../context'
+
 
 beforeEach(cleanup)
 jest.mock('axios')
@@ -20,7 +22,13 @@ beforeEach(() => {
 });
 
 test('renders app', () => {
-  render(<App />);
+  render(
+    <AppProvider>
+			<AppContext.Consumer>
+			{(value) => <App {...value} />	}
+			</AppContext.Consumer>
+		</AppProvider>
+    );
   waitForElementToBeRemoved(() => screen.getByText(/loading/i))
 
    // local storage api:
@@ -34,12 +42,13 @@ test('renders app', () => {
   expect(localStorage.setItem).toBeDefined
   expect(localStorage.getItem).toBeDefined
   //simulate user click
-  const onRowSelection = jest.fn()
   const { queryByTestId } = render(
-    <MeteorTable columns={columns} meteorData={mockData}
-      onRowSelected={onRowSelection}
-    />
-  );
+    <AppProvider>
+			<AppContext.Consumer>
+			{(value) => <MeteorTable {...value} />	}
+			</AppContext.Consumer>
+		</AppProvider>
+  )
   //integration test simulate clicking of meteor data table to add item to list
   fireEvent.click(queryByTestId('add-favorite'))
 //screen.debug()

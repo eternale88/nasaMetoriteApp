@@ -3,6 +3,8 @@ import React from 'react'
 import PropTypes from 'prop-types';
 import { makeStyles } from "@material-ui/core/styles"
 import { DataGrid } from '@material-ui/data-grid'
+import { columns } from '../Constants/Constant'
+import { useGlobalContext } from '../context';
 
 //apply some custom colors
 const useStyles = makeStyles({
@@ -17,7 +19,8 @@ const useStyles = makeStyles({
 });
 
 //store in state var in context for insertion here
-const Favorites = ({favorites, columns}) => {
+const Favorites = () => {
+  const { favorites } = useGlobalContext()
 	const classes = useStyles()
 
 	return (
@@ -29,6 +32,6 @@ export default Favorites
 
 Favorites.propTypes = {
 	DataGrid: PropTypes.element,
-	favorites: PropTypes.arrayOf(PropTypes.object).isRequired,
-	columns: PropTypes.arrayOf(PropTypes.object).isRequired
+	favorites: PropTypes.arrayOf(PropTypes.object),
+	columns: PropTypes.arrayOf(PropTypes.object)
 }

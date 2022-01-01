@@ -1,11 +1,15 @@
 import React from 'react'
 import { DataGrid } from '@material-ui/data-grid'
 import PropTypes from 'prop-types';
+import { useGlobalContext } from '../context';
+import { columns } from '../Constants/Constant'
 
 //store these 3 in a state variable in context, can call here for use
-export const MeteorTable = ({meteorData, columns, onRowSelected}) => {
+export const MeteorTable = () => {
+	const { meteorData, onRowSelection} = useGlobalContext()
+
 	return (
-		<DataGrid checkboxSelection style={{marginLeft: '3rem'}}  rows={meteorData} columns={columns}  pageSize={25} onRowSelected={(e) => onRowSelected(e)} />
+		<DataGrid checkboxSelection style={{marginLeft: '3rem'}}  rows={meteorData} columns={columns}  pageSize={25} onRowSelected={(e) => onRowSelection(e)} />
 	)
 }
 
