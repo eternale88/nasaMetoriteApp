@@ -1,5 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react'
 import axios from 'axios'
+import PropTypes from 'prop-types';
+
 
  import { NASA_METEOR_API_ENDPOINT } from './Constants/Constant'
 
@@ -101,3 +103,7 @@ export const useGlobalContext = () => {
 }
 
 export { AppContext, AppProvider }
+
+AppProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+}

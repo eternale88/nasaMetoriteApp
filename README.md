@@ -1,5 +1,7 @@
 # Nasa Metorite Data Visualizer
 
+# FYI - 2022 Improvements - UPDATED WITH Context Api for Global State Management - tests also updated to reflect this, and updated type checking with prop-types
+
 React app, that allows a user to explore Nasa Meteorite Data through a Table with dynamic filtering for each column( sorting, filtering, showing and hiding) - and the ability to add any meteors they want to their own favorites table that they can explore more through the advanced filtering mentioned earlier. This list can persist through page refreshes as well as in other tabs, because it saves the favorites using the HTML5 LocalStorage API. Internal state management is handled using React Hooks.
 
 It has Responsive CSS styling, going from 2 column to a single column layout on smaller screens. Material UI and custom CSS is used for this. It displays a popup when the user adds a new item to their list for a more friendly user experience.

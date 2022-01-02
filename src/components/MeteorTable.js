@@ -14,7 +14,9 @@ export const MeteorTable = () => {
 }
 
 MeteorTable.propTypes = {
+	meteorData: PropTypes.array,
 	columns: PropTypes.arrayOf(PropTypes.object),
 	onRowSelected: PropTypes.func,
-	rows: PropTypes.arrayOf(PropTypes.object)
+	rows: PropTypes.arrayOf(PropTypes.object),
+	DataGrid: PropTypes.element,
 }

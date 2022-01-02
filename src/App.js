@@ -61,7 +61,6 @@ export default App;
 
 App.propTypes = {
   loading: PropTypes.bool,
-  meteorData: PropTypes.array,
+  open: PropTypes.bool,
   favorites: PropTypes.arrayOf(PropTypes.object),
-	columns: PropTypes.arrayOf(PropTypes.object)
 }
