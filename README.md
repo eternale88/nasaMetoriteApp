@@ -85,7 +85,7 @@ The localStorage read-only property of the window interface allows you to access
 localStorage is similar to sessionStorage, except that while localStorage data has no expiration time, sessionStorage data gets cleared when the page session ends — that is, when the page is closed. (localStorage data for a document loaded in a "private browsing" or "incognito" session is cleared when the last "private" tab is closed.)
 
 ### Type Checking
-(https://www.npmjs.com/package/prop-types) Typescript would be another way to go.
+(https://www.npmjs.com/package/prop-types) Typescript would be another way to go but I like the simplicity of this library for typechecking.
 
 ### NASA Meteorite Landings API
 [Meteorite Landings API Docs](https://data.nasa.gov/Earth-Science/Meteorite-Landings-API/c2vx-j9ed)
