@@ -12,6 +12,7 @@ afterEach(() => {
 })
 
 
+
 describe('<MeteorTable /> tests', () => {
 	test('renders app', () => {
 		render(

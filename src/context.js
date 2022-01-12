@@ -1,9 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react'
 import axios from 'axios'
 import PropTypes from 'prop-types';
-
-
- import { NASA_METEOR_API_ENDPOINT } from './Constants/Constant'
+import { NASA_METEOR_API_ENDPOINT } from './Constants/Constant'
 
 const AppContext = React.createContext()
 
@@ -71,6 +69,8 @@ const AppProvider = ({children}) => {
 			if(favorites.length > 0 && !favorites.some(fav => fav.id === e.data.id)) {
 				setFavorites([...favorites, e.data])
 				alertItemAdded()
+			} else {
+				setFavorites(favorites.filter((fav) => fav.id !== e.data.id))
 			}
 		}
 
