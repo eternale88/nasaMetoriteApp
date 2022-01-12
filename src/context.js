@@ -70,6 +70,7 @@ const AppProvider = ({children}) => {
 				setFavorites([...favorites, e.data])
 				alertItemAdded()
 			} else {
+				//remove item from list, if clicked on a second time
 				setFavorites(favorites.filter((fav) => fav.id !== e.data.id))
 			}
 		}
